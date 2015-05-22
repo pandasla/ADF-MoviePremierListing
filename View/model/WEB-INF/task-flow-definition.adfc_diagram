@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">251.20117</property>
+      <property
+         name="x">91.700195</property>
+   </OverallProperties>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">populateMovieData</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>populateMovieData&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">83.5</property>
+      <property
+         name="x">91.700195</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">MoviePremierPage</property>
+      <property
+         name="page">/MoviePremierPage.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>MoviePremierPage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">83.5</property>
+      <property
+         name="x">274.4209</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">populateMovieData</property>
+      <property
+         name="sdm:polyPoints">R50,132.7002,83.149414,233.4209,83.149414,L50</property>
+   </ControlFlowCase>
+</SDM>

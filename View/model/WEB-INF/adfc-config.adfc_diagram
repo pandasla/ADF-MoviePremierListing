@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">task-flow-definitionForAdvanced</property>
+      <property
+         name="activityId">task-flow-definitionForAdvanced</property>
+      <property
+         name="documentReference">/WEB-INF/task-flow-definitionForAdvanced.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>task-flow-definitionForAdvanced&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">71.79883</property>
+      <property
+         name="x">110.37402</property>
+   </TaskFlowCall>
+</SDM>

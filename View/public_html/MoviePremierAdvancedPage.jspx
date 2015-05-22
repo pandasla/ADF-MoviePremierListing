@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewBundle" value="#{adfBundle['view.ViewBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.d1}">
+      <af:messages binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.m1}"
+                   id="m1"/>
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.f1}">
+        <af:outputText value="#{viewBundle.MOVIES_WILL_BE_PREMIERING_LABEL}"
+                       binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.ot1}"
+                       inlineStyle="font-family:'Times New Roman', 'Arial Black', times, Serif; font-size:xx-large;"
+                       id="ot1"
+                       />
+        <af:selectOneChoice label="Select month:"
+                            binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.soc2}"
+                            id="soc2"
+                            valueChangeListener="#{backingBeanScope.backing_MoviePremierAdvancedPage.monthChangeListener}"
+                            autoSubmit="true" immediate="true"
+                            inlineStyle="font-family:'Times New Roman', 'Arial Black', times, Serif; font-size:large;">
+          <af:selectItem label="#{viewBundle.JAN}" value="01" id="si5"/>
+          <af:selectItem label="#{viewBundle.FEB}" value="02" id="si6"/>
+          <af:selectItem label="#{viewBundle.MAR}" value="03" id="si7"/>
+          <af:selectItem label="#{viewBundle.APR}" value="04" id="si8"/>
+          <af:selectItem label="#{viewBundle.MAY}" value="05" id="si9"/>
+          <af:selectItem label="#{viewBundle.JUN}" value="06" id="si10"/>
+          <af:selectItem label="#{viewBundle.JUL}" value="07" id="si11"/>
+          <af:selectItem label="#{viewBundle.AUG}" value="08" id="si12"/>
+          <af:selectItem label="#{viewBundle.SEP}" value="09" id="si13"/>
+          <af:selectItem label="#{viewBundle.OCT}" value="10" id="si14"/>
+          <af:selectItem label="#{viewBundle.NOV}" value="11" id="si15"/>
+          <af:selectItem label="#{viewBundle.DEC}" value="12" id="si16"/>
+        </af:selectOneChoice>
+        <af:table value="#{bindings.MovieDataVO1.collectionModel}" var="row"
+                  rows="#{bindings.MovieDataVO1.rangeSize}"
+                  emptyText="#{bindings.MovieDataVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.MovieDataVO1.rangeSize}"
+                  rowBandingInterval="0"
+                  filterModel="#{bindings.MovieDataVO1Query.queryDescriptor}"
+                  queryListener="#{backingBeanScope.backing_MoviePremierAdvancedPage.customFilter}"
+                  filterVisible="true" varStatus="vs"
+                  binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.t1}"
+                  styleClass="AFStretchWidth" columnStretching="last" inlineStyle="height:700px"
+                  id="t1" partialTriggers="::soc2">
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.Title.name}"
+                     filterable="false" sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.Title.label}"
+                     inlineStyle="width:100px;" noWrap="false" id="c5">
+            <af:goLink text="#{row.Title}" id="gl1"
+                       destination="#{row.LinkURL}" targetFrame="_blank" styleClass="AFStretchWidth"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.StartDate.name}"
+                     filterable="false" sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.StartDate.label}"
+                     id="c4">
+            <af:outputText value="#{row.StartDate}" id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.Rated.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.Rated.label}"
+                     id="c1">
+            <af:outputText value="#{row.Rated}" id="ot4"
+                            inlineStyle="width:100px;"/>
+            <f:facet name="filter">
+              <af:selectOneChoice binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.soc1}"
+                                  id="soc1" simple="true" immediate="true"
+                                  autoSubmit="true">
+                <af:selectItem label="G" value="G" id="si1"/>
+                <af:selectItem label="PG" value="PG" id="si2"/>
+                <af:selectItem label="PG-13" value="PG\-13" id="si3"/>
+                <af:selectItem label="R" value="R" id="si4"/>
+              </af:selectOneChoice>
+            </f:facet>
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.PosterURL.name}"
+                     filterable="false" sortable="false"
+                     headerText="#{bindings.MovieDataVO1.hints.PosterURL.label}"
+                     id="c3">
+            <af:image id="i1" source="#{row.PosterURL}"
+                      styleClass="AFStretchWidth"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.Summary.name}"
+                     filterable="false" sortable="false"
+                     headerText="#{bindings.MovieDataVO1.hints.Summary.label}"
+                     styleClass="AFStretchWidth" noWrap="false" id="c2">
+            <af:outputText value="#{row.Summary}" id="ot6"/>
+          </af:column>
+        </af:table>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_MoviePremierAdvancedPage-->
+</jsp:root>

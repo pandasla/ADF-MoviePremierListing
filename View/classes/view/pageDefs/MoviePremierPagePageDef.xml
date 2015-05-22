@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.65.57" id="MoviePremierPagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MovieDataVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="MovieDataVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MovieDataVO1Iterator" id="MovieDataVO1">
+      <nodeDefinition DefName="model.MovieDataVO" Name="MovieDataVO10">
+        <AttrNames>
+          <Item Value="Title"/>
+          <Item Value="StartDate"/>
+          <Item Value="Rated"/>
+          <Item Value="PosterURL"/>
+          <Item Value="LinkURL"/>
+          <Item Value="Summary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.65.57" id="DataBindings" SeparateXMLFiles="false"
+             Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/MoviePremierPage.jspx" usageId="view_MoviePremierPagePageDef"/>
+    <page path="/WEB-INF/task-flow-definition.xml#task-flow-definition@populateMovieData"
+          usageId="view_adfc_config___populateMovieDataPageDef"/>
+    <page path="/MoviePremierAdvancedPage.jspx"
+          usageId="view_MoviePremierAdvancedPagePageDef"/>
+    <page path="/WEB-INF/task-flow-definitionForAdvanced.xml#task-flow-definitionForAdvanced@populateMovieData"
+          usageId="view_task_flow_definitionForAdvanced_task_flow_definitionForAdvanced_populateMovieDataPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_MoviePremierPagePageDef"
+          path="view.pageDefs.MoviePremierPagePageDef"/>
+    <page id="view_adfc_config___populateMovieDataPageDef"
+          path="view.pageDefs.adfc_config___populateMovieDataPageDef"/>
+    <page id="view_MoviePremierAdvancedPagePageDef"
+          path="view.pageDefs.MoviePremierAdvancedPagePageDef"/>
+    <page id="view_task_flow_definitionForAdvanced_task_flow_definitionForAdvanced_populateMovieDataPageDef"
+          path="view.pageDefs.task_flow_definitionForAdvanced_task_flow_definitionForAdvanced_populateMovieDataPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-definition">
+    <default-activity id="__10">populateMovieData</default-activity>
+    <view id="MoviePremierPage">
+      <page id="__1">/MoviePremierPage.jspx</page>
+    </view>
+    <method-call id="populateMovieData">
+      <method id="__2">#{bindings.populateMovieData.execute}</method>
+      <outcome id="__5">
+        <fixed-outcome id="__3">populateMovieData</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__6">populateMovieData</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__7">populateMovieData</from-outcome>
+        <to-activity-id id="__8">MoviePremierPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility id="__11">
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

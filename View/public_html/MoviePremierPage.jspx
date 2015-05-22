@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewBundle" value="#{adfBundle['view.ViewBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_MoviePremierPage.d1}">
+      <af:messages binding="#{backingBeanScope.backing_MoviePremierPage.m1}"
+                   id="m1"/>
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_MoviePremierPage.f1}">
+        <af:outputText value="#{viewBundle.MOVIES_WILL_BE_PREMIERING_LABEL}"
+                       binding="#{backingBeanScope.backing_MoviePremierPage.ot1}"
+                       id="ot1"
+                       inlineStyle="font-family:'Times New Roman', 'Arial Black', times, Serif; font-size:xx-large;"/>
+        <af:table value="#{bindings.MovieDataVO1.collectionModel}" var="row"
+                  rows="#{bindings.MovieDataVO1.rangeSize}"
+                  emptyText="#{bindings.MovieDataVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.MovieDataVO1.rangeSize}"
+                  rowBandingInterval="0"
+                  binding="#{backingBeanScope.backing_MoviePremierPage.t1}"
+                  id="t1" styleClass="AFStretchWidth" columnStretching="last"
+                  inlineStyle="height:700px">
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.Title.name}"
+                     sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.Title.label}"
+                     id="c1" inlineStyle="width:100px;" noWrap="false">
+            <af:goLink text="#{row.Title}" id="gl1"
+                       destination="#{row.LinkURL}" targetFrame="_blank" styleClass="AFStretchWidth"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.StartDate.name}"
+                     sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.StartDate.label}"
+                     id="c2">
+            <af:outputText value="#{row.StartDate}" id="ot4"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.Rated.name}"
+                     sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.Rated.label}"
+                     id="c3">
+            <af:outputText value="#{row.Rated}" id="ot2"
+                           inlineStyle="width:100px;"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.PosterURL.name}"
+                     sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.PosterURL.label}"
+                     id="c5">
+            <af:image id="i1" source="#{row.PosterURL}"
+                      styleClass="AFStretchWidth"/>
+            <!--<af:goImageLink id="gil1" icon="#{row.PosterURL}"
+                            destination="#{row.LinkURL}" targetFrame="_blank"/>-->
+          </af:column>
+          <af:column sortProperty="#{bindings.MovieDataVO1.hints.Summary.name}"
+                     sortable="true"
+                     headerText="#{bindings.MovieDataVO1.hints.Summary.label}"
+                     id="c4" styleClass="AFStretchWidth" noWrap="false">
+            <af:outputText value="#{row.Summary}" id="ot6"/>
+          </af:column>
+        </af:table>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_MoviePremierPage-->
+</jsp:root>
