@@ -13,11 +13,15 @@
                    id="m1"/>
       <af:form id="f1"
                binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.f1}">
+               
+        <!-- Message to show on the page -->
         <af:outputText value="#{viewBundle.MOVIES_WILL_BE_PREMIERING_LABEL}"
                        binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.ot1}"
                        inlineStyle="font-family:'Times New Roman', 'Arial Black', times, Serif; font-size:xx-large;"
                        id="ot1"
                        />
+        
+        <!-- Month pull down menu for user to choose month to search for movie listing -->
         <af:selectOneChoice label="Select month:"
                             binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.soc2}"
                             id="soc2"
@@ -37,6 +41,8 @@
           <af:selectItem label="#{viewBundle.NOV}" value="11" id="si15"/>
           <af:selectItem label="#{viewBundle.DEC}" value="12" id="si16"/>
         </af:selectOneChoice>
+        
+        <!-- The table to display movie listing -->
         <af:table value="#{bindings.MovieDataVO1.collectionModel}" var="row"
                   rows="#{bindings.MovieDataVO1.rangeSize}"
                   emptyText="#{bindings.MovieDataVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -67,6 +73,12 @@
                      id="c1">
             <af:outputText value="#{row.Rated}" id="ot4"
                             inlineStyle="width:100px;"/>
+            
+            <!-- Filter for filtering movie list by Rated -->
+            <af:decorativeBox id="db1">
+              <f:facet name="center"/>
+              <f:facet name="top"/>
+            </af:decorativeBox>
             <f:facet name="filter">
               <af:selectOneChoice binding="#{backingBeanScope.backing_MoviePremierAdvancedPage.soc1}"
                                   id="soc1" simple="true" immediate="true"
